@@ -416,7 +416,7 @@ export default function Home() {
                   Selected projects that define our commitment to excellence.
                 </p>
               </div>
-              <Link href="/portfolio" className="w-full md:w-auto">
+              <Link href="/case-studies" className="w-full md:w-auto">
                 <button className="w-full md:w-auto rounded-full border border-cyan-300/30 bg-cyan-400/10 px-6 py-3 text-sm font-semibold text-cyan-300 transition hover:border-cyan-300 hover:bg-cyan-400/20">
                   View All Case Studies
                 </button>
@@ -488,13 +488,13 @@ export default function Home() {
                     src="/images/business.png"
                     alt="Business Solutions Platform"
                     className="h-full w-full object-cover transition group-hover:scale-105" */}
-                  {/* /> */}
-                  {/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" /> */}
-                  {/* <span className="absolute top-4 right-4 inline-flex rounded-full bg-cyan-500/20 px-3 py-1 text-xs font-semibold text-cyan-300 border border-cyan-500/30">
+              {/* /> */}
+              {/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" /> */}
+              {/* <span className="absolute top-4 right-4 inline-flex rounded-full bg-cyan-500/20 px-3 py-1 text-xs font-semibold text-cyan-300 border border-cyan-500/30">
                     E-commerce
                   </span> */}
-                {/* </div> */}
-                {/* <div className="p-6">
+              {/* </div> */}
+              {/* <div className="p-6">
                   <h3 className="text-xl font-semibold text-white">Business Solutions Platform</h3>
                   <p className="mt-2 text-sm text-slate-400">Comprehensive business solutions for modern enterprises.</p>
                 </div> */}
