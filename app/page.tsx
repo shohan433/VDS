@@ -182,12 +182,12 @@ export default function Home() {
                 </nav>
 
                 <div className="hidden items-center gap-3 lg:flex">
-                  <button className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-slate-100 transition hover:border-white/30 hover:bg-white/10 hover:cursor-pointer">
+                  <Link href="/contact" className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-slate-100 transition hover:border-white/30 hover:bg-white/10 hover:cursor-pointer">
                     Book a Call
-                  </button>
-                  <button className="rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 hover:cursor-pointer" >
+                  </Link>
+                  <Link href="/contact#proposal-form" className="rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 hover:cursor-pointer" >
                     Get Proposal
-                  </button>
+                  </Link>
                 </div>
 
                 {/* Mobile Hamburger (3-bar) Button */}
@@ -228,12 +228,12 @@ export default function Home() {
                     Contact
                   </Link>
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                    <button className="flex-1 rounded-full border border-white/15 bg-white/5 py-3 text-slate-100 transition hover:border-white/30 hover:bg-white/10">
+                    <Link href="/contact" className="flex-1 text-center rounded-full border border-white/15 bg-white/5 py-3 text-slate-100 transition hover:border-white/30 hover:bg-white/10">
                       Book a Call
-                    </button>
-                    <button className="flex-1 rounded-full bg-cyan-400 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300">
+                    </Link>
+                    <Link href="/contact#proposal-form" className="flex-1 text-center rounded-full bg-cyan-400 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300">
                       Get Proposal
-                    </button>
+                    </Link>
                   </div>
                 </nav>
               </div>
@@ -619,48 +619,48 @@ export default function Home() {
             {/* Process Steps */}
             <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-8 md:gap-4 lg:gap-8 flex-wrap">
               {/* Step 1: Discover */}
-              <div className="flex flex-col items-center text-center max-w-xs">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-cyan-400 bg-slate-950/50 mb-6">
+              <div className="group flex flex-col items-center text-center max-w-xs cursor-default">
+                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-cyan-400 bg-slate-950/50 mb-6 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]">
                   <span className="text-3xl font-semibold text-cyan-300">01</span>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Discover</h3>
-                <p className="text-sm text-slate-400">In-depth research and goal alignment sessions.</p>
+                <h3 className="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-cyan-300">Discover</h3>
+                <p className="text-sm text-slate-400 transition-colors duration-300 group-hover:text-slate-300">In-depth research and goal alignment sessions.</p>
               </div>
 
               {/* Step 2: Strategy */}
-              <div className="flex flex-col items-center text-center max-w-xs">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-slate-500 bg-slate-950/50 mb-6">
-                  <span className="text-3xl font-semibold text-slate-400">02</span>
+              <div className="group flex flex-col items-center text-center max-w-xs cursor-default">
+                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-slate-500 bg-slate-950/50 mb-6 transition-all duration-300 group-hover:border-cyan-400 group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]">
+                  <span className="text-3xl font-semibold text-slate-400 transition-colors duration-300 group-hover:text-cyan-300">02</span>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Strategy</h3>
-                <p className="text-sm text-slate-400">Roadmapping the architectural and design path.</p>
+                <h3 className="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-cyan-300">Strategy</h3>
+                <p className="text-sm text-slate-400 transition-colors duration-300 group-hover:text-slate-300">Roadmapping the architectural and design path.</p>
               </div>
 
               {/* Step 3: Design */}
-              <div className="flex flex-col items-center text-center max-w-xs">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-slate-500 bg-slate-950/50 mb-6">
-                  <span className="text-3xl font-semibold text-slate-400">03</span>
+              <div className="group flex flex-col items-center text-center max-w-xs cursor-default">
+                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-slate-500 bg-slate-950/50 mb-6 transition-all duration-300 group-hover:border-cyan-400 group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]">
+                  <span className="text-3xl font-semibold text-slate-400 transition-colors duration-300 group-hover:text-cyan-300">03</span>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Design</h3>
-                <p className="text-sm text-slate-400">Crafting high-fidelity UI and brand experiences.</p>
+                <h3 className="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-cyan-300">Design</h3>
+                <p className="text-sm text-slate-400 transition-colors duration-300 group-hover:text-slate-300">Crafting high-fidelity UI and brand experiences.</p>
               </div>
 
               {/* Step 4: Develop */}
-              <div className="flex flex-col items-center text-center max-w-xs">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-slate-500 bg-slate-950/50 mb-6">
-                  <span className="text-3xl font-semibold text-slate-400">04</span>
+              <div className="group flex flex-col items-center text-center max-w-xs cursor-default">
+                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-slate-500 bg-slate-950/50 mb-6 transition-all duration-300 group-hover:border-cyan-400 group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]">
+                  <span className="text-3xl font-semibold text-slate-400 transition-colors duration-300 group-hover:text-cyan-300">04</span>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Develop</h3>
-                <p className="text-sm text-slate-400">Robust coding with cutting-edge technologies.</p>
+                <h3 className="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-cyan-300">Develop</h3>
+                <p className="text-sm text-slate-400 transition-colors duration-300 group-hover:text-slate-300">Robust coding with cutting-edge technologies.</p>
               </div>
 
               {/* Step 5: Launch */}
-              <div className="flex flex-col items-center text-center max-w-xs">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-slate-500 bg-slate-950/50 mb-6">
-                  <span className="text-3xl font-semibold text-slate-400">05</span>
+              <div className="group flex flex-col items-center text-center max-w-xs cursor-default">
+                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-slate-500 bg-slate-950/50 mb-6 transition-all duration-300 group-hover:border-cyan-400 group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]">
+                  <span className="text-3xl font-semibold text-slate-400 transition-colors duration-300 group-hover:text-cyan-300">05</span>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Launch</h3>
-                <p className="text-sm text-slate-400">QA, optimization, and final deployment.</p>
+                <h3 className="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-cyan-300">Launch</h3>
+                <p className="text-sm text-slate-400 transition-colors duration-300 group-hover:text-slate-300">QA, optimization, and final deployment.</p>
               </div>
             </div>
           </div>
@@ -756,6 +756,10 @@ export default function Home() {
               <span className="hover:text-white transition duration-300 cursor-default">Tailwind</span>
               <span className="hover:text-white transition duration-300 cursor-default">Framer</span>
               <span className="hover:text-white transition duration-300 cursor-default">Node.js</span>
+              <span className="hover:text-white transition duration-300 cursor-default">MongoDB</span>
+              <span className="hover:text-white transition duration-300 cursor-default">Express.js</span>
+              <span className="hover:text-white transition duration-300 cursor-default">MERN Stack</span>
+              <span className="hover:text-white transition duration-300 cursor-default">Full Stack</span>
             </div>
           </div>
         </section>

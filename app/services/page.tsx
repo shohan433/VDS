@@ -141,12 +141,12 @@ export default function Services() {
         </nav>
 
         <div className="flex flex-wrap items-center gap-3">
-          <button className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-slate-100 transition hover:border-white/30 hover:bg-white/10">
+          <Link href="/contact" className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-slate-100 transition hover:border-white/30 hover:bg-white/10">
             Book a Call
-          </button>
-          <button className="rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">
+          </Link>
+          <Link href="/contact#proposal-form" className="rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">
             Get Proposal
-          </button>
+          </Link>
         </div>
       </header>
 

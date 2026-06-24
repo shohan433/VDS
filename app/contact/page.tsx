@@ -141,12 +141,12 @@ export default function ContactPage() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <button className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-slate-100 transition hover:border-white/30 hover:bg-white/10">
+            <Link href="/contact" className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-slate-100 transition hover:border-white/30 hover:bg-white/10">
               Book a Call
-            </button>
-            <button className="rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">
+            </Link>
+            <Link href="/contact#proposal-form" className="rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">
               Get Proposal
-            </button>
+            </Link>
           </div>
 
           {/* Mobile back link */}
@@ -252,7 +252,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right — Contact Form */}
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-950/50 p-8 backdrop-blur-xl shadow-2xl">
+            <div id="proposal-form" className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-950/50 p-8 backdrop-blur-xl shadow-2xl">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.07),transparent_60%)]" />
 
               {submitted ? (

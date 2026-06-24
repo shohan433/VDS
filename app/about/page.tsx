@@ -72,16 +72,16 @@ export default function AboutPage() {
     },
   ];
 
-  // Demo client placeholders — replace src with real logo images
   const clients = [
-    { id: 1, name: "Client One" },
-    { id: 2, name: "Client Two" },
-    { id: 3, name: "Client Three" },
-    { id: 4, name: "Client Four" },
-    { id: 5, name: "Client Five" },
-    { id: 6, name: "Client Six" },
-    { id: 7, name: "Client Seven" },
-    { id: 8, name: "Client Eight" },
+    { id: 1, src: "/images/client1.png", name: "Client One" },
+    { id: 2, src: "/images/client2.png", name: "Client Two" },
+    { id: 3, src: "/images/client3.png", name: "Client Three" },
+    { id: 4, src: "/images/client4.png", name: "Client Four" },
+    { id: 5, src: "/images/client5.png", name: "Client Five" },
+    { id: 6, src: "/images/client6.png", name: "Client Six" },
+    { id: 7, src: "/images/client7.png", name: "Client Seven" },
+    { id: 8, src: "/images/client8.jpg", name: "Client Eight" },
+    { id: 9, src: "/images/client9.png", name: "Client Nine" },
   ];
 
   const team = [
@@ -135,10 +135,10 @@ export default function AboutPage() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <button className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-slate-100 transition hover:border-white/30 hover:bg-white/10">
+            <Link href="/contact" className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-slate-100 transition hover:border-white/30 hover:bg-white/10">
               Book a Call
-            </button>
-            <Link href="/contact" className="rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">
+            </Link>
+            <Link href="/contact#proposal-form" className="rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">
               Get Proposal
             </Link>
           </div>
@@ -335,30 +335,23 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Client logo grid */}
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            {clients.map((client) => (
-              <div
-                key={client.id}
-                className="group flex flex-col items-center justify-center gap-3 rounded-2xl border border-white/[0.07] bg-white/[0.03] p-8 transition duration-300 hover:border-cyan-500/25 hover:bg-white/5"
-              >
-                {/*
-                  ── REPLACE THIS PLACEHOLDER with your actual client logo ──
-                  Example: <img src="/images/clients/client-name.png" alt="Client Name" className="h-10 w-auto object-contain opacity-70 group-hover:opacity-100 transition" />
-                */}
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg font-bold text-slate-400 group-hover:border-cyan-500/30 group-hover:text-cyan-400 transition">
-                  {client.id}
+          {/* Client Marquee */}
+          <div className="mt-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex w-max animate-marquee items-center gap-6 sm:gap-10 hover:[animation-play-state:paused]">
+              {[...clients, ...clients].map((client, i) => (
+                <div
+                  key={`${client.id}-${i}`}
+                  className="flex h-24 w-40 sm:h-28 sm:w-48 items-center justify-center rounded-2xl border border-white/[0.05] bg-white/[0.02] p-4 sm:p-6 transition hover:bg-white/[0.05] hover:border-cyan-500/20"
+                >
+                  <img
+                    src={client.src}
+                    alt={client.name}
+                    className="max-h-full max-w-full object-contain opacity-70 transition hover:opacity-100 grayscale hover:grayscale-0"
+                  />
                 </div>
-                <p className="text-xs text-slate-500 group-hover:text-slate-400 transition text-center">
-                  {client.name}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-
-          <p className="mt-8 text-center text-xs text-slate-600">
-            Replace each placeholder with your client&apos;s logo image.
-          </p>
         </div>
       </section>
 
