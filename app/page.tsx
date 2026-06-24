@@ -242,7 +242,7 @@ export default function Home() {
             <main className="grid flex-1 items-center gap-12 pb-8 pt-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
               <div className="max-w-2xl">
                 <span className="inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-cyan-200">
-                  Digital Innovation Agency
+                  VIRTUAL DIGITAL SOLUTION
                 </span>
                 <h1 className="mt-8 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight tracking-[-0.05em] text-white">
                   Transforming Ideas Into <span className="text-cyan-300">Digital Experiences</span>
@@ -708,8 +708,8 @@ export default function Home() {
                     key={index}
                     onClick={() => setCurrentTestimonial(index)}
                     className={`h-2 rounded-full transition ${index === currentTestimonial
-                        ? 'bg-cyan-400 w-8'
-                        : 'bg-slate-600 w-2 hover:bg-slate-400'
+                      ? 'bg-cyan-400 w-8'
+                      : 'bg-slate-600 w-2 hover:bg-slate-400'
                       }`}
                   />
                 ))}
@@ -822,12 +822,13 @@ export default function Home() {
             <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
               {/* Brand Col */}
               <div className="sm:col-span-2 space-y-6">
-                <span className="text-xl font-bold tracking-wider text-white uppercase">VDS</span>
+                <img src="/images/vds logo.png" alt="VDS Logo" className="h-10 w-auto rounded-full object-contain" />
+                {/* <span className="text-xl font-bold tracking-wider text-white uppercase"><img src="/images/vds logo.png" alt="VDS Logo" className="h-10 w-auto rounded-full object-contain" /></span> */}
                 <p className="max-w-xs text-sm text-slate-400 leading-relaxed">
                   Crafting high-end digital experiences for the world's most ambitious brands.
                 </p>
                 <p className="text-sm text-slate-500 pt-4">
-                  © 2024 VDS . Digital Innovation Partner.
+                  © 2026 VDS . Virtual Digital Solution.
                 </p>
               </div>
 
@@ -885,9 +886,8 @@ export default function Home() {
         {/* Back to Top Button */}
         <button
           onClick={scrollToTop}
-          className={`fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-cyan-500/30 bg-slate-950/60 text-cyan-400 backdrop-blur-md transition-all duration-300 hover:border-cyan-400 hover:text-cyan-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] hover:scale-110 active:scale-95 ${
-            showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
-          }`}
+          className={`fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-cyan-500/30 bg-slate-950/60 text-cyan-400 backdrop-blur-md transition-all duration-300 hover:border-cyan-400 hover:text-cyan-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] hover:scale-110 active:scale-95 ${showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+            }`}
           aria-label="Back to Top"
         >
           <svg
