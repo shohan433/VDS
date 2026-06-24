@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-slide-testimonial: slideFromRight 0.8s ease-in-out;
+  --animate-slide-in-left: slideInFromLeft 0.8s ease-out;
+  --animate-slide-in-right: slideInFromRight 0.8s ease-out;
+
+  @keyframes slideFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
