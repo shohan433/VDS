@@ -87,7 +87,7 @@ export default function AboutPage() {
   const team = [
     {
       name: "SHIBLEE",
-      role: "Founder & Head of Digital Marketing",
+      role: "Head of Digital Marketing",
       initials: "S",
       color: "from-cyan-500 to-sky-600",
       bio: "Marketing expert who transforms complex problems into beautiful, intuitive interfaces.",

@@ -182,10 +182,10 @@ export default function Home() {
                 </nav>
 
                 <div className="hidden items-center gap-3 lg:flex">
-                  <button className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-slate-100 transition hover:border-white/30 hover:bg-white/10">
+                  <button className="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-slate-100 transition hover:border-white/30 hover:bg-white/10 hover:cursor-pointer">
                     Book a Call
                   </button>
-                  <button className="rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">
+                  <button className="rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 hover:cursor-pointer" >
                     Get Proposal
                   </button>
                 </div>
@@ -482,23 +482,23 @@ export default function Home() {
               </div>
 
               {/* Moda Luxury E-com */}
-              <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/50 transition hover:border-cyan-400/30 hover:bg-slate-950/70">
+              {/* <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/50 transition hover:border-cyan-400/30 hover:bg-slate-950/70">
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src="/images/business.png"
                     alt="Business Solutions Platform"
-                    className="h-full w-full object-cover transition group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    className="h-full w-full object-cover transition group-hover:scale-105" */}
+                  {/* /> */}
+                  {/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" /> */}
                   {/* <span className="absolute top-4 right-4 inline-flex rounded-full bg-cyan-500/20 px-3 py-1 text-xs font-semibold text-cyan-300 border border-cyan-500/30">
                     E-commerce
                   </span> */}
-                </div>
-                <div className="p-6">
+                {/* </div> */}
+                {/* <div className="p-6">
                   <h3 className="text-xl font-semibold text-white">Business Solutions Platform</h3>
                   <p className="mt-2 text-sm text-slate-400">Comprehensive business solutions for modern enterprises.</p>
-                </div>
-              </div>
+                </div> */}
+              {/* </div> */}
 
               {/* Horizon Real Estate */}
               {/* <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/50 transition hover:border-cyan-400/30 hover:bg-slate-950/70">
