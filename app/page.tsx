@@ -170,15 +170,15 @@ export default function Home() {
                   <a className="transition hover:text-white" href="#portfolio">
                     Portfolio
                   </a>
-                  <a className="transition hover:text-white" href="#case-studies">
+                  <Link className="transition hover:text-white" href="/case-studies">
                     Case Studies
-                  </a>
-                  <a className="transition hover:text-white" href="#about">
+                  </Link>
+                  <Link className="transition hover:text-white" href="/about">
                     About
-                  </a>
-                  <a className="transition hover:text-white" href="#contact">
+                  </Link>
+                  <Link className="transition hover:text-white" href="/contact">
                     Contact
-                  </a>
+                  </Link>
                 </nav>
 
                 <div className="hidden items-center gap-3 lg:flex">
@@ -218,15 +218,15 @@ export default function Home() {
                   <a className="transition py-2 hover:text-cyan-300" href="#portfolio" onClick={() => setMobileMenuOpen(false)}>
                     Portfolio
                   </a>
-                  <a className="transition py-2 hover:text-cyan-300" href="#case-studies" onClick={() => setMobileMenuOpen(false)}>
+                  <Link className="transition py-2 hover:text-cyan-300" href="/case-studies" onClick={() => setMobileMenuOpen(false)}>
                     Case Studies
-                  </a>
-                  <a className="transition py-2 hover:text-cyan-300" href="#about" onClick={() => setMobileMenuOpen(false)}>
+                  </Link>
+                  <Link className="transition py-2 hover:text-cyan-300" href="/about" onClick={() => setMobileMenuOpen(false)}>
                     About
-                  </a>
-                  <a className="transition py-2 hover:text-cyan-300" href="#contact" onClick={() => setMobileMenuOpen(false)}>
+                  </Link>
+                  <Link className="transition py-2 hover:text-cyan-300" href="/contact" onClick={() => setMobileMenuOpen(false)}>
                     Contact
-                  </a>
+                  </Link>
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">
                     <button className="flex-1 rounded-full border border-white/15 bg-white/5 py-3 text-slate-100 transition hover:border-white/30 hover:bg-white/10">
                       Book a Call
@@ -851,7 +851,7 @@ export default function Home() {
                     <a href="#portfolio" className="hover:text-white transition duration-200">Portfolio</a>
                   </li>
                   <li>
-                    <a href="#case-studies" className="hover:text-white transition duration-200">Case Studies</a>
+                    <Link href="/case-studies" className="hover:text-white transition duration-200">Case Studies</Link>
                   </li>
                 </ul>
               </div>

@@ -129,15 +129,15 @@ export default function Services() {
           <a className="transition hover:text-white" href="#portfolio">
             Portfolio
           </a>
-          <a className="transition hover:text-white" href="#case-studies">
+          <Link className="transition hover:text-white" href="/case-studies">
             Case Studies
-          </a>
-          <a className="transition hover:text-white" href="#about">
+          </Link>
+          <Link className="transition hover:text-white" href="/about">
             About
-          </a>
-          <a className="transition hover:text-white" href="#contact">
+          </Link>
+          <Link className="transition hover:text-white" href="/contact">
             Contact
-          </a>
+          </Link>
         </nav>
 
         <div className="flex flex-wrap items-center gap-3">
