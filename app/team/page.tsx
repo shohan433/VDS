@@ -133,9 +133,9 @@ export default function TeamPage() {
                   <div className={`absolute -inset-2 rounded-full border-2 border-transparent bg-gradient-to-br ${member.color} opacity-20 blur-sm group-hover:opacity-50 transition duration-500`} style={{ maskImage: 'linear-gradient(white, transparent)' }} />
 
                   {/* Avatar */}
-                  <div className={`relative flex h-24 w-24 overflow-hidden items-center justify-center rounded-full bg-gradient-to-br ${member.color} text-2xl font-bold text-white shadow-xl transition-transform duration-500 group-hover:scale-110`}>
+                  <div className={`relative flex h-32 w-32 mx-auto overflow-hidden items-center justify-center rounded-full bg-gradient-to-br ${member.color} text-2xl font-bold text-white shadow-xl transition-transform duration-500 group-hover:scale-110`}>
                     {member.image ? (
-                      <img src={member.image} alt={member.name} className="h-full w-full object-cover" />
+                      <img src={member.image} alt={member.name} className="h-full w-full object-cover object-top" />
                     ) : (
                       member.initials
                     )}

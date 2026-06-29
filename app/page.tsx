@@ -548,82 +548,7 @@ export default function Home() {
         <section id="our-story" className="relative overflow-hidden py-16 lg:py-24">
           <div className="relative z-10 mx-auto max-w-[1440px] px-6 sm:px-8 lg:px-12">
 
-            {/* Story & Mission/Vision */}
-            <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] items-center mb-24">
-              <div className="space-y-6">
-                <span className="inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-cyan-200 font-medium">
-                  Who We Are
-                </span>
-                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight">
-                  The Story of <span className="text-cyan-300">VDS</span>
-                </h2>
-                <div className="space-y-4 text-base sm:text-lg text-slate-400 leading-relaxed pt-4">
-                  <p>
-                    <strong className="text-white font-medium">Every great brand starts with a belief.</strong> VDS was built on one simple idea: Businesses don't just need marketing. They need direction, identity, and long-term growth.
-                  </p>
-                  <p>
-                    We noticed that many businesses invested in ads, logos, and social media, yet struggled to build a brand people genuinely remembered. Marketing without strategy creates temporary results. Branding without execution stays only an idea. That's why we created VDS.
-                  </p>
-                  <p>
-                    Not as another digital marketing agency, but as a growth partner that combines strategy, creativity, technology, and execution under one roof. Today, VDS helps businesses build brands that people trust, create marketing systems that generate consistent growth, produce content that connects with audiences, and develop digital experiences through modern websites.
-                  </p>
-                  <p className="text-cyan-300 font-medium text-xl mt-4">
-                    We believe every business has a unique story. Our job is to make sure the world sees it. This is only the beginning.
-                  </p>
-                </div>
-              </div>
 
-              <div className="grid gap-6">
-                <div className="rounded-3xl border border-white/10 bg-slate-950/60 backdrop-blur-xl p-8 shadow-2xl transition hover:border-cyan-400/30">
-                  <h3 className="text-2xl font-semibold text-white mb-4 flex items-center gap-4">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">
-                      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
-                    </span>
-                    Our Mission
-                  </h3>
-                  <p className="text-slate-400 leading-relaxed">To act as a holistic growth partner, combining strategy, creativity, technology, and execution to build trusted brands and drive consistent growth.</p>
-                </div>
-                <div className="rounded-3xl border border-white/10 bg-slate-950/60 backdrop-blur-xl p-8 shadow-2xl transition hover:border-cyan-400/30">
-                  <h3 className="text-2xl font-semibold text-white mb-4 flex items-center gap-4">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">
-                      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 12A10 10 0 0 1 22 12A10 10 0 0 1 2 12Z" /><path d="M12 2v20M2 12h20" /></svg>
-                    </span>
-                    Our Vision
-                  </h3>
-                  <p className="text-slate-400 leading-relaxed">To ensure every business's unique story is seen by the world, transforming visionary ideas into deeply memorable and lasting digital experiences.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Core Values */}
-            <div className="mb-24">
-              <div className="text-center mb-12">
-                <h3 className="text-3xl sm:text-4xl font-semibold text-white">Our <span className="text-cyan-300">Core Values</span></h3>
-              </div>
-              <div className="grid gap-6 sm:grid-cols-3">
-                <div className="rounded-3xl border border-white/10 bg-slate-950/50 p-8 text-center transition duration-300 hover:scale-105 hover:border-cyan-400/30 hover:bg-slate-950/80">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 mb-6">
-                    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="1" /><path d="M12 2v6m0 4v6M4.22 4.22l4.24 4.24m2.12 2.12l4.24 4.24M2 12h6m4 0h6M4.22 19.78l4.24-4.24m2.12-2.12l4.24-4.24M19.78 4.22l-4.24 4.24m-2.12 2.12l-4.24 4.24M22 12h-6m-4 0H6" /></svg>
-                  </div>
-                  <h4 className="text-xl font-semibold text-white mb-3">Strategy First</h4>
-                  <p className="text-sm text-slate-400 leading-relaxed">Marketing without strategy creates temporary results. Every pixel and campaign serves a clear purpose in your growth journey.</p>
-                </div>
-                <div className="rounded-3xl border border-white/10 bg-slate-950/50 p-8 text-center transition duration-300 hover:scale-105 hover:border-cyan-400/30 hover:bg-slate-950/80">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 mb-6">
-                    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" /><polyline points="13 2 13 9 20 9" /></svg>
-                  </div>
-                  <h4 className="text-xl font-semibold text-white mb-3">Flawless Execution</h4>
-                  <p className="text-sm text-slate-400 leading-relaxed">Branding without execution stays only an idea. We engineer high-performance solutions combining creativity and technology.</p>
-                </div>
-                <div className="rounded-3xl border border-white/10 bg-slate-950/50 p-8 text-center transition duration-300 hover:scale-105 hover:border-cyan-400/30 hover:bg-slate-950/80">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 mb-6">
-                    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
-                  </div>
-                  <h4 className="text-xl font-semibold text-white mb-3">Reliable Partnership</h4>
-                  <p className="text-sm text-slate-400 leading-relaxed">We don't just act as an agency; we are your growth partner dedicated to building a brand people genuinely remember.</p>
-                </div>
-              </div>
-            </div>
 
             {/* Our Work Process */}
             <div>
@@ -637,11 +562,11 @@ export default function Home() {
               </div>
               <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-8 md:gap-4 lg:gap-8 flex-wrap">
                 {[
-                  { step: "01", title: "Discover", desc: "In-depth research and goal alignment sessions." },
-                  { step: "02", title: "Strategy", desc: "Roadmapping the architectural and design path." },
-                  { step: "03", title: "Design", desc: "Crafting high-fidelity UI and brand experiences." },
-                  { step: "04", title: "Develop", desc: "Robust coding with cutting-edge technologies." },
-                  { step: "05", title: "Launch", desc: "QA, optimization, and final deployment." }
+                  { step: "01", title: "Listen", desc: "Understanding your goals, challenges, and vision through deep conversations." },
+                  { step: "02", title: "Research", desc: "Analyzing your market, competitors, and audience to uncover key insights." },
+                  { step: "03", title: "Finding Problems", desc: "Identifying gaps, bottlenecks, and opportunities holding your brand back." },
+                  { step: "04", title: "Execution", desc: "Bringing strategy to life with precision design, development, and marketing." },
+                  { step: "05", title: "Solution", desc: "Delivering measurable results and scalable systems for long-term growth." }
                 ].map((item, i) => (
                   <div key={i} className="group flex flex-col items-center text-center max-w-[12rem] cursor-default">
                     <div className={`flex h-20 w-20 items-center justify-center rounded-full border-2 bg-slate-950/50 mb-6 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] ${i === 0 ? 'border-cyan-400' : 'border-slate-500 group-hover:border-cyan-400'}`}>
