@@ -57,6 +57,18 @@ export default function Home() {
     }
   ];
 
+  const clients = [
+    { id: 1, src: "/images/client1.png", name: "Client One" },
+    { id: 2, src: "/images/client2.png", name: "Client Two" },
+    { id: 3, src: "/images/client3.png", name: "Client Three" },
+    { id: 4, src: "/images/client4.png", name: "Client Four" },
+    { id: 5, src: "/images/client5.png", name: "Client Five" },
+    { id: 6, src: "/images/client6.png", name: "Client Six" },
+    { id: 7, src: "/images/client7.png", name: "Client Seven" },
+    { id: 8, src: "/images/client8.jpg", name: "Client Eight" },
+    { id: 9, src: "/images/client9.png", name: "Client Nine" },
+  ];
+
   useEffect(() => {
     if (!vantaLoaded || typeof window === "undefined") return;
 
@@ -629,6 +641,42 @@ export default function Home() {
                       : 'bg-slate-600 w-2 hover:bg-slate-400'
                       }`}
                   />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Clients We've Worked With ── */}
+        <section className="relative overflow-hidden py-20 px-6 sm:px-8 lg:px-12">
+          {/* Background glow */}
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,211,238,0.05),transparent_70%)]" />
+
+          <div className="relative z-10 mx-auto max-w-[1440px]">
+            <div className="text-center mb-14">
+              <p className="text-sm uppercase tracking-[0.3em] text-cyan-300 mb-3">Trusted By</p>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white">
+                Clients We&apos;ve Worked With
+              </h2>
+              <p className="mt-4 text-slate-400 max-w-lg mx-auto text-sm sm:text-base">
+                We&apos;re proud to have partnered with ambitious brands across industries and borders.
+              </p>
+            </div>
+
+            {/* Client Marquee */}
+            <div className="mt-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+              <div className="flex w-max animate-marquee items-center gap-6 sm:gap-10 hover:[animation-play-state:paused]">
+                {[...clients, ...clients].map((client, i) => (
+                  <div
+                    key={`${client.id}-${i}`}
+                    className="flex h-24 w-40 sm:h-28 sm:w-48 items-center justify-center rounded-2xl border border-white/[0.05] bg-white/[0.02] p-4 sm:p-6 transition hover:bg-white/[0.05] hover:border-cyan-500/20"
+                  >
+                    <img
+                      src={client.src}
+                      alt={client.name}
+                      className="max-h-full max-w-full object-contain opacity-70 transition hover:opacity-100 grayscale hover:grayscale-0"
+                    />
+                  </div>
                 ))}
               </div>
             </div>

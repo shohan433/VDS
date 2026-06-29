@@ -48,17 +48,6 @@ export default function AboutPage() {
     },
   ];
 
-  const clients = [
-    { id: 1, src: "/images/client1.png", name: "Client One" },
-    { id: 2, src: "/images/client2.png", name: "Client Two" },
-    { id: 3, src: "/images/client3.png", name: "Client Three" },
-    { id: 4, src: "/images/client4.png", name: "Client Four" },
-    { id: 5, src: "/images/client5.png", name: "Client Five" },
-    { id: 6, src: "/images/client6.png", name: "Client Six" },
-    { id: 7, src: "/images/client7.png", name: "Client Seven" },
-    { id: 8, src: "/images/client8.jpg", name: "Client Eight" },
-    { id: 9, src: "/images/client9.png", name: "Client Nine" },
-  ];
 
 
   return (
@@ -204,6 +193,61 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── Mission & Vision ── */}
+      <section className="relative py-20 px-6 sm:px-8 lg:px-12 overflow-hidden">
+        {/* Decorative background glows */}
+        <div className="pointer-events-none absolute left-1/4 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-500/[0.06] blur-[120px]" />
+        <div className="pointer-events-none absolute right-1/4 bottom-0 h-[400px] w-[400px] translate-x-1/2 rounded-full bg-violet-500/[0.06] blur-[100px]" />
+
+        <div className="relative z-10 mx-auto max-w-[1200px]">
+          <div className="text-center mb-14">
+            <p className="text-xs uppercase tracking-[0.3em] text-cyan-300 mb-3">Our Purpose</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">Mission & Vision</h2>
+            <p className="mt-4 text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
+              The principles that guide every decision we make and every solution we deliver.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            {/* Mission Card */}
+            <div className="group relative rounded-2xl border border-white/[0.07] bg-white/[0.02] p-8 sm:p-10 transition duration-300 hover:border-cyan-500/30 hover:bg-white/[0.04]">
+              {/* Gradient accent line at top */}
+              <div className="absolute top-0 left-8 right-8 h-[2px] rounded-full bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl border border-cyan-500/20 bg-cyan-500/10 text-cyan-400 transition group-hover:border-cyan-400/40 group-hover:bg-cyan-500/15 group-hover:scale-110 duration-300">
+                <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Our Mission</h3>
+              <p className="text-slate-400 leading-relaxed text-sm sm:text-base">
+                To empower businesses with end-to-end digital solutions — from branding and marketing strategy to web development and content production — enabling them to build authentic identities, connect with their audiences, and achieve sustainable, measurable growth.
+              </p>
+            </div>
+
+            {/* Vision Card */}
+            <div className="group relative rounded-2xl border border-white/[0.07] bg-white/[0.02] p-8 sm:p-10 transition duration-300 hover:border-violet-500/30 hover:bg-white/[0.04]">
+              {/* Gradient accent line at top */}
+              <div className="absolute top-0 left-8 right-8 h-[2px] rounded-full bg-gradient-to-r from-transparent via-violet-400/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl border border-violet-500/20 bg-violet-500/10 text-violet-400 transition group-hover:border-violet-400/40 group-hover:bg-violet-500/15 group-hover:scale-110 duration-300">
+                <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Our Vision</h3>
+              <p className="text-slate-400 leading-relaxed text-sm sm:text-base">
+                To become the most trusted digital growth partner for businesses worldwide — a company known not just for delivering exceptional results, but for genuinely caring about every client&apos;s success and helping them leave a lasting impact in their industry.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── Our Values ── */}
       <section className="relative py-16 px-6 sm:px-8 lg:px-12">
@@ -230,41 +274,6 @@ export default function AboutPage() {
       </section>
 
 
-      {/* ── Clients We've Worked With ── */}
-      <section className="relative py-20 px-6 sm:px-8 lg:px-12">
-        {/* Background glow */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,211,238,0.05),transparent_70%)]" />
-
-        <div className="relative z-10 mx-auto max-w-[1200px]">
-          <div className="text-center mb-14">
-            <p className="text-xs uppercase tracking-[0.3em] text-cyan-300 mb-3">Trusted By</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              Clients We&apos;ve Worked With
-            </h2>
-            <p className="mt-4 text-slate-400 max-w-lg mx-auto text-sm sm:text-base">
-              We&apos;re proud to have partnered with ambitious brands across industries and borders.
-            </p>
-          </div>
-
-          {/* Client Marquee */}
-          <div className="mt-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-            <div className="flex w-max animate-marquee items-center gap-6 sm:gap-10 hover:[animation-play-state:paused]">
-              {[...clients, ...clients].map((client, i) => (
-                <div
-                  key={`${client.id}-${i}`}
-                  className="flex h-24 w-40 sm:h-28 sm:w-48 items-center justify-center rounded-2xl border border-white/[0.05] bg-white/[0.02] p-4 sm:p-6 transition hover:bg-white/[0.05] hover:border-cyan-500/20"
-                >
-                  <img
-                    src={client.src}
-                    alt={client.name}
-                    className="max-h-full max-w-full object-contain opacity-70 transition hover:opacity-100 grayscale hover:grayscale-0"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
 
 
