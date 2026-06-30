@@ -6,7 +6,7 @@ export default function ContentCreation() {
       {/* Background gradients */}
       <div className="pointer-events-none absolute left-0 top-24 h-72 w-72 rounded-full bg-purple-400/10 blur-3xl" />
       <div className="pointer-events-none absolute right-0 bottom-24 h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl" />
-      
+
       <header className="relative z-10 mx-auto max-w-[1440px] flex items-center justify-between gap-4 px-6 py-6 sm:px-8 lg:px-12">
         <Link href="/" className="inline-flex items-center gap-3 text-white hover:opacity-80 transition">
           <img src="/images/vds logo.png" alt="VDS Logo" className="h-10 w-auto rounded-full object-contain" />
@@ -44,20 +44,20 @@ export default function ContentCreation() {
 
       <main className="relative z-10 mx-auto max-w-[1440px] px-6 py-16 sm:px-8 lg:px-12 lg:py-24">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-center">
-          
+
           <div className="flex-1 space-y-8 lg:pr-10">
             <div>
               <span className="inline-flex rounded-full border border-purple-500/20 bg-purple-500/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-purple-200 mb-6 font-medium">
                 VDS Creative Studio
               </span>
               <h1 className="text-4xl font-semibold text-white sm:text-5xl lg:text-7xl leading-[1.1] tracking-tight">
-                Content <br /> <span className="text-purple-400">Creation</span>
+                Creative <br /> <span className="text-purple-400">Studio</span>
               </h1>
               <p className="mt-8 text-lg sm:text-xl text-slate-400 max-w-xl leading-relaxed">
-                Engaging and high-quality content that resonates with your target audience, building a lasting brand story.
+                Transforming your vision into captivating visuals, compelling narratives, and high-performance content. We craft experiences that drive engagement and elevate your brand.
               </p>
             </div>
-            
+
             <div className="flex flex-col gap-4 sm:flex-row pt-4">
               <Link href="/contact" className="inline-flex items-center justify-center rounded-full bg-purple-500 px-8 py-4 text-base font-semibold text-white transition hover:bg-purple-400 hover:scale-105 duration-300">
                 Start a Project
@@ -71,7 +71,7 @@ export default function ContentCreation() {
           <div className="flex-1 w-full max-w-xl relative">
             <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/30 to-fuchsia-600/30 blur-[100px] rounded-3xl transform -rotate-6 scale-105"></div>
             <div className="relative rounded-3xl border border-white/10 bg-slate-950/60 backdrop-blur-2xl p-8 sm:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-              
+
               <div className="space-y-8">
                 <h3 className="font-semibold text-white text-2xl tracking-tight">Our Services</h3>
                 <div className="space-y-6">
@@ -97,7 +97,7 @@ export default function ContentCreation() {
                   ))}
                 </div>
               </div>
-              
+
             </div>
           </div>
 

@@ -413,8 +413,8 @@ export default function Home() {
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                     </div>
-                    <h3 className="mt-6 text-xl font-semibold text-white">Content Creation</h3>
-                    <p className="mt-3 text-sm text-slate-400">Engaging content that resonates with your target audience.</p>
+                    <h3 className="mt-6 text-xl font-semibold text-white">Creative Studio</h3>
+                    <p className="mt-3 text-sm text-slate-400">Transforming your vision into captivating visuals, compelling narratives, and high-performance content.</p>
                   </article>
                 </Link>
 
@@ -473,8 +473,8 @@ export default function Home() {
                   </span> */}
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white">Digital Marketing Campaign</h3>
-                  <p className="mt-2 text-sm text-slate-400">Complete mobile banking redesign for the next generation of digital natives.</p>
+                  <h3 className="text-xl font-semibold text-white">Digital Marketing</h3>
+                  <p className="mt-2 text-sm text-slate-400">Transforming your vision into captivating visuals, compelling narratives, and high-performance content.</p>
                 </div>
               </div>
 
@@ -492,8 +492,8 @@ export default function Home() {
                   </span> */}
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white">IT Solutions Platform</h3>
-                  <p className="mt-2 text-sm text-slate-400">Comprehensive IT services and solutions for modern businesses.</p>
+                  <h3 className="text-xl font-semibold text-white">Development Solutions</h3>
+                  <p className="mt-2 text-sm text-slate-400">From concept to code, we build scalable web applications that drive real business results.</p>
                 </div>
               </div>
 
@@ -511,8 +511,8 @@ export default function Home() {
                   </span> */}
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white">Content Creation Platform</h3>
-                  <p className="mt-2 text-sm text-slate-400">Empower creators with intuitive tools for producing engaging digital content.</p>
+                  <h3 className="text-xl font-semibold text-white">Creative Studio</h3>
+                  <p className="mt-2 text-sm text-slate-400">Transforming your ideas into innovative digital solutions through stunning visuals, strategic storytelling, and high-performance content.</p>
                 </div>
               </div>
 
@@ -654,7 +654,7 @@ export default function Home() {
 
           <div className="relative z-10 mx-auto max-w-[1440px]">
             <div className="text-center mb-14">
-              <p className="text-sm uppercase tracking-[0.3em] text-cyan-300 mb-3">Trusted By</p>
+              {/* <p className="text-sm uppercase tracking-[0.3em] text-cyan-300 mb-3">Trusted By</p> */}
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white">
                 Clients We&apos;ve Worked With
               </h2>
@@ -825,10 +825,10 @@ export default function Home() {
                     <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200">TikTok</a>
                   </li>
                   <li>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200">GitHub</a>
+                    <a href="https://github.com/vdsdigitalbd" target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200">GitHub</a>
                   </li>
                   <li>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/virtual-digital-solution-69247241a/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200">LinkedIn</a>
                   </li>
                   <li>
                     <Link href="/privacy" className="hover:text-white transition duration-200">Privacy Policy</Link>

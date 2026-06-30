@@ -8,7 +8,7 @@ export default function TeamPage() {
 
   const team = [
     {
-      name: "SHIBLEE",
+      name: "SAYED SHIBLEE SADIK",
       role: "Head of Digital Marketing",
       initials: "S",
       image: "/images/team2.jpeg",
