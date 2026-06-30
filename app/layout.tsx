@@ -15,8 +15,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VDS — Digital Innovation Agency",
-  description: "Landing page for a digital innovation agency built with Next.js and Tailwind CSS.",
+  metadataBase: new URL('https://your-website-url.com'), // Replace with your actual domain
+  title: {
+    default: "VDS — Digital Innovation Agency",
+    template: `%s | VDS`,
+  },
+  description: "VDS is a digital innovation agency crafting high-end digital experiences for the world's most ambitious brands. We specialize in UI/UX design, web development, and digital solutions.",
+  openGraph: {
+    title: "VDS — Digital Innovation Agency",
+    description: "Transforming Ideas Into Digital Experiences.",
+    url: "https://your-website-url.com", // Replace with your actual domain
+    siteName: "VDS",
+    images: [
+      {
+        url: '/og-image.png', // Create and place an Open Graph image in your /public folder
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "VDS — Digital Innovation Agency",
+    description: "Transforming Ideas Into Digital Experiences.",
+    images: ['/og-image.png'], // Use the same OG image
+  },
 };
 
 export default function RootLayout({

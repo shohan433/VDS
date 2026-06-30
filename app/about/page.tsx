@@ -5,30 +5,6 @@ import { useEffect, useRef, useState } from "react";
 
 export default function AboutPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [countersStarted, setCountersStarted] = useState(false);
-  const statsRef = useRef<HTMLDivElement | null>(null);
-
-  // Animate counters when section enters view
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setCountersStarted(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
-    if (statsRef.current) observer.observe(statsRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  const stats = [
-    { value: 35, suffix: "+", label: "Projects Delivered" },
-    { value: 21, suffix: "+", label: "Global Clients" },
-    { value: 2, suffix: "+", label: "Years Experience" },
-    { value: 7, suffix: "+", label: "Startup Collabs" },
-  ];
 
   const values = [
     {
@@ -84,36 +60,6 @@ export default function AboutPage() {
     { id: 9, src: "/images/client9.png", name: "Client Nine" },
   ];
 
-  const team = [
-    {
-      name: "SHIBLEE",
-      role: "Head of Digital Marketing",
-      initials: "S",
-      color: "from-cyan-500 to-sky-600",
-      bio: "Marketing expert who transforms complex problems into beautiful, intuitive interfaces.",
-    },
-    {
-      name: "ARAFAT AMIN",
-      role: "Head of Content & Production",
-      initials: "AA",
-      color: "from-violet-500 to-purple-600",
-      bio: "Content expert who transforms complex problems into beautiful, intuitive interfaces.",
-    },
-    {
-      name: "MD. BARKATULLAH CHOWDHURY",
-      role: "Head of Web Development",
-      initials: "BC",
-      color: "from-emerald-500 to-teal-600",
-      bio: "Architecting scalable web solutions with a passion for clean code and peak performance.",
-    },
-    {
-      name: "TANVIR AMZAD",
-      role: "Head of Business Operation",
-      initials: "TA",
-      color: "from-amber-500 to-orange-600",
-      bio: "Business operation expert who transforms complex problems into beautiful, intuitive interfaces.",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-[#050b16] text-slate-50">
@@ -127,9 +73,10 @@ export default function AboutPage() {
 
           {/* Desktop nav */}
           <nav className="hidden items-center gap-10 text-sm text-slate-300 lg:flex">
+            <Link className="transition hover:text-white" href="/">Home</Link>
             <Link className="transition hover:text-white" href="/#services">Services</Link>
             <Link className="transition hover:text-white" href="/#portfolio">Portfolio</Link>
-            <Link className="transition hover:text-white" href="/case-studies">Case Studies</Link>
+            <Link className="transition hover:text-white" href="/team">Our Team</Link>
             <Link className="text-cyan-300 font-medium" href="/about">About</Link>
             <Link className="transition hover:text-white" href="/contact">Contact</Link>
           </nav>
@@ -161,9 +108,10 @@ export default function AboutPage() {
         {/* Mobile dropdown */}
         <div className={`transition-all duration-300 ease-in-out lg:hidden overflow-hidden ${mobileMenuOpen ? 'max-h-[400px] opacity-100 border-t border-white/10' : 'max-h-0 opacity-0 pointer-events-none'}`}>
           <nav className="flex flex-col gap-4 px-6 py-4 text-sm text-slate-300 font-medium">
+            <Link className="py-2 hover:text-cyan-300 transition" href="/" onClick={() => setMobileMenuOpen(false)}>Home</Link>
             <Link className="py-2 hover:text-cyan-300 transition" href="/#services" onClick={() => setMobileMenuOpen(false)}>Services</Link>
             <Link className="py-2 hover:text-cyan-300 transition" href="/#portfolio" onClick={() => setMobileMenuOpen(false)}>Portfolio</Link>
-            <Link className="py-2 hover:text-cyan-300 transition" href="/case-studies" onClick={() => setMobileMenuOpen(false)}>Case Studies</Link>
+            <Link className="py-2 hover:text-cyan-300 transition" href="/team" onClick={() => setMobileMenuOpen(false)}>Our Team</Link>
             <Link className="py-2 text-cyan-300 font-semibold" href="/about" onClick={() => setMobileMenuOpen(false)}>About</Link>
             <Link className="py-2 hover:text-cyan-300 transition" href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
           </nav>
@@ -190,9 +138,8 @@ export default function AboutPage() {
             </span>
           </h1>
           <p className="mx-auto mt-8 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-400">
-            VDS — Virtual Digital Solution — is a Dhaka-based digital agency helping startups, businesses, and enterprises
-            craft extraordinary digital products. From UI/UX and branding to full-stack development, we turn bold ideas into
-            world-class experiences.
+            VDS — Virtual Digital Solution — is a Dhaka-based platform that help startups, businesses, and enterprises
+            craft extraordinary digital products.
           </p>
         </div>
       </section>
@@ -205,21 +152,23 @@ export default function AboutPage() {
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-cyan-300 mb-4">Our Story</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-6">
-                From a One-Person Studio to a Full-Service Digital Agency
+                From a One-Person Studio to a Full-Solution Provider
               </h2>
               <div className="space-y-4 text-slate-400 leading-relaxed text-base">
                 <p>
-                  VDS was born out of a simple frustration: too many great ideas were being held back by mediocre digital
-                  execution. We set out to change that — one project at a time.
+                  Every great brand starts with a belief.
+                  VDS was built on one simple idea: Businesses don't just need marketing. They need direction, identity, and long-term growth
                 </p>
                 <p>
-                  What started as a freelance design practice in 2024 has grown into a tight-knit team of designers,
-                  developers, and strategists united by one belief: that digital products should be both beautiful and
-                  powerfully functional.
+                  We noticed that many businesses invested in ads, logos, and social media, yet struggled to build a brand people genuinely remembered. Marketing without strategy creates temporary results. Branding without execution stays only an idea.
+                  That's why we created VDS.
                 </p>
                 <p>
-                  Today, we partner with clients across Bangladesh, the Middle East, and beyond — helping them build
-                  digital presences that truly stand out in a crowded world.
+                  Not as another digital marketing agency, but as a growth partner that combines strategy, creativity, technology, and execution under one roof.
+                  Today, VDS helps businesses build brands that people trust, create marketing systems that generate consistent growth, produce content that connects with audiences, and develop digital experiences through modern websites.
+                  We believe every business has a unique story.
+                  Our job is to make sure the world sees it.
+                  This is only the beginning.
                 </p>
               </div>
               <Link
@@ -255,16 +204,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Stats Counter ── */}
-      <section ref={statsRef} className="relative py-16 px-6 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-[1200px]">
-          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {stats.map((s) => (
-              <StatCard key={s.label} {...s} started={countersStarted} />
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── Our Values ── */}
       <section className="relative py-16 px-6 sm:px-8 lg:px-12">
@@ -290,34 +229,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Meet the Team ── */}
-      <section className="relative py-16 px-6 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-[1200px]">
-          <div className="text-center mb-14">
-            <p className="text-xs uppercase tracking-[0.3em] text-cyan-300 mb-3">The People</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">Meet the Team</h2>
-            <p className="mt-4 text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
-              A small but mighty crew of creators, engineers, and strategists obsessed with digital excellence.
-            </p>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member) => (
-              <div
-                key={member.name}
-                className="group relative overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.03] p-6 text-center transition duration-300 hover:border-white/15 hover:bg-white/5"
-              >
-                {/* Avatar */}
-                <div className={`mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br ${member.color} text-xl font-bold text-white shadow-lg`}>
-                  {member.initials}
-                </div>
-                <h3 className="text-base font-semibold text-white">{member.name}</h3>
-                <p className="mt-1 text-xs text-cyan-400 tracking-wide">{member.role}</p>
-                <p className="mt-3 text-xs leading-relaxed text-slate-500 group-hover:text-slate-400 transition">{member.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── Clients We've Worked With ── */}
       <section className="relative py-20 px-6 sm:px-8 lg:px-12">
@@ -355,84 +266,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="relative py-20 px-6 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-[1200px]">
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/40 p-10 sm:p-16 text-center backdrop-blur-xl shadow-2xl">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.08),transparent_70%)]" />
-            <div className="relative z-10">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
-                Ready to build something{" "}
-                <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-cyan-200 bg-clip-text text-transparent">
-                  extraordinary?
-                </span>
-              </h2>
-              <p className="mt-5 text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
-                Let&apos;s talk about your project and how we can help you bring it to life.
-              </p>
-              <Link
-                href="/contact"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-8 py-4 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 hover:scale-[1.02] shadow-[0_4px_25px_rgba(34,211,238,0.2)]"
-              >
-                Start a Conversation
-                <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* ── Footer strip ── */}
       <footer className="border-t border-white/5 px-6 py-8 sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-4 text-sm text-slate-500 sm:flex-row">
           <p>© 2026 VDS · Virtual Digital Solution</p>
-          <Link href="/" className="transition hover:text-slate-300">← Back to Home</Link>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            <Link href="/privacy" className="transition hover:text-slate-300">Privacy Policy</Link>
+            <Link href="/terms" className="transition hover:text-slate-300">Terms of Service</Link>
+            <Link href="/" className="transition hover:text-slate-300">← Back to Home</Link>
+          </div>
         </div>
       </footer>
     </div>
   );
 }
 
-// ── Animated counter card ──
-function StatCard({
-  value,
-  suffix,
-  label,
-  started,
-}: {
-  value: number;
-  suffix: string;
-  label: string;
-  started: boolean;
-}) {
-  const [display, setDisplay] = useState(0);
 
-  useEffect(() => {
-    if (!started) return;
-    let start = 0;
-    const duration = 1400;
-    const step = Math.ceil(value / (duration / 16));
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= value) {
-        setDisplay(value);
-        clearInterval(timer);
-      } else {
-        setDisplay(start);
-      }
-    }, 16);
-    return () => clearInterval(timer);
-  }, [started, value]);
-
-  return (
-    <div className="rounded-2xl border border-white/[0.07] bg-white/[0.03] px-6 py-8 text-center transition hover:border-cyan-500/20 hover:bg-white/5">
-      <p className="text-4xl sm:text-5xl font-bold text-white tabular-nums">
-        {display}
-        <span className="text-cyan-400">{suffix}</span>
-      </p>
-      <p className="mt-3 text-xs uppercase tracking-[0.25em] text-slate-500">{label}</p>
-    </div>
-  );
-}

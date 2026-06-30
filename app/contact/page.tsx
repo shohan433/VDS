@@ -133,10 +133,11 @@ export default function ContactPage() {
           </Link>
 
           <nav className="hidden items-center gap-10 text-sm text-slate-300 lg:flex">
+            <Link className="transition hover:text-white" href="/">Home</Link>
             <Link className="transition hover:text-white" href="/#services">Services</Link>
             <Link className="transition hover:text-white" href="/#portfolio">Portfolio</Link>
-            <Link className="transition hover:text-white" href="/case-studies">Case Studies</Link>
-            <Link className="transition hover:text-white" href="/#about">About</Link>
+            <Link className="transition hover:text-white" href="/team">Our Team</Link>
+            <Link className="transition hover:text-white" href="/about">About</Link>
             <Link className="text-cyan-300 font-medium" href="/contact">Contact</Link>
           </nav>
 
@@ -390,11 +391,13 @@ export default function ContactPage() {
 
       {/* Footer strip */}
       <footer className="border-t border-white/5 px-6 py-8 sm:px-8 lg:px-12">
-        <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-4 text-sm text-slate-500 sm:flex-row">
+        <div className="mx-auto flex max-w-[1440px] flex-col items-center justify-between gap-4 text-sm text-slate-500 sm:flex-row">
           <p>© 2026 VDS · Virtual Digital Solution</p>
-          <Link href="/" className="transition hover:text-slate-300">
-            ← Back to Home
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            <Link href="/privacy" className="transition hover:text-slate-300">Privacy Policy</Link>
+            <Link href="/terms" className="transition hover:text-slate-300">Terms of Service</Link>
+            <Link href="/" className="transition hover:text-slate-300">← Back to Home</Link>
+          </div>
         </div>
       </footer>
     </div>

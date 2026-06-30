@@ -18,9 +18,10 @@ export default function CaseStudiesPage() {
 
           {/* Desktop nav */}
           <nav className="hidden items-center gap-10 text-sm text-slate-300 lg:flex">
+            <Link className="transition hover:text-white" href="/">Home</Link>
             <Link className="transition hover:text-white" href="/#services">Services</Link>
             <Link className="transition hover:text-white" href="/#portfolio">Portfolio</Link>
-            <Link className="text-cyan-300 font-medium" href="/case-studies">Case Studies</Link>
+            <Link className="transition hover:text-white" href="/team">Our Team</Link>
             <Link className="transition hover:text-white" href="/about">About</Link>
             <Link className="transition hover:text-white" href="/contact">Contact</Link>
           </nav>
@@ -52,9 +53,10 @@ export default function CaseStudiesPage() {
         {/* Mobile dropdown */}
         <div className={`transition-all duration-300 ease-in-out lg:hidden overflow-hidden ${mobileMenuOpen ? 'max-h-[400px] opacity-100 border-t border-white/10' : 'max-h-0 opacity-0 pointer-events-none'}`}>
           <nav className="flex flex-col gap-4 px-6 py-4 text-sm text-slate-300 font-medium">
+            <Link className="py-2 hover:text-cyan-300 transition" href="/" onClick={() => setMobileMenuOpen(false)}>Home</Link>
             <Link className="py-2 hover:text-cyan-300 transition" href="/#services" onClick={() => setMobileMenuOpen(false)}>Services</Link>
             <Link className="py-2 hover:text-cyan-300 transition" href="/#portfolio" onClick={() => setMobileMenuOpen(false)}>Portfolio</Link>
-            <Link className="py-2 text-cyan-300 font-semibold" href="/case-studies" onClick={() => setMobileMenuOpen(false)}>Case Studies</Link>
+            <Link className="py-2 hover:text-cyan-300 transition" href="/team" onClick={() => setMobileMenuOpen(false)}>Our Team</Link>
             <Link className="py-2 hover:text-cyan-300 transition" href="/about" onClick={() => setMobileMenuOpen(false)}>About</Link>
             <Link className="py-2 hover:text-cyan-300 transition" href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
           </nav>
@@ -92,8 +94,13 @@ export default function CaseStudiesPage() {
 
       {/* ── Footer strip ── */}
       <footer className="border-t border-white/5 px-6 py-8 sm:px-8 lg:px-12 mt-auto">
-        <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-4 text-sm text-slate-500 sm:flex-row">
+        <div className="mx-auto flex max-w-[1440px] flex-col items-center justify-between gap-4 text-sm text-slate-500 sm:flex-row">
           <p>© 2026 VDS · Virtual Digital Solution</p>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            <Link href="/privacy" className="transition hover:text-slate-300">Privacy Policy</Link>
+            <Link href="/terms" className="transition hover:text-slate-300">Terms of Service</Link>
+            <Link href="/" className="transition hover:text-slate-300">← Back to Home</Link>
+          </div>
         </div>
       </footer>
     </div>

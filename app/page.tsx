@@ -8,6 +8,13 @@ export default function Home() {
   const vantaRef = useRef<HTMLDivElement | null>(null);
   const vantaEffect = useRef<any>(null);
   const [vantaLoaded, setVantaLoaded] = useState(false);
+
+  useEffect(() => {
+    // If returning via client side routing, the script is already loaded
+    if (typeof window !== 'undefined' && (window as any).VANTA) {
+      setVantaLoaded(true);
+    }
+  }, []);
   const bannerRef = useRef<HTMLDivElement | null>(null);
   const servicesRef = useRef<HTMLDivElement | null>(null);
   const portfolioRef = useRef<HTMLDivElement | null>(null);
@@ -20,6 +27,14 @@ export default function Home() {
   });
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [mobileMenuOpen]);
 
   const testimonials = [
     {
@@ -69,6 +84,7 @@ export default function Home() {
       if (vantaEffect.current?.destroy) {
         vantaEffect.current.destroy();
       }
+      vantaEffect.current = null;
     };
   }, [vantaLoaded]);
 
@@ -135,7 +151,7 @@ export default function Home() {
       <Script
         src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"
         strategy="afterInteractive"
-        onLoad={() => setVantaLoaded(true)}
+        onReady={() => setVantaLoaded(true)}
       />
       <div className="relative min-h-screen overflow-hidden bg-[#050b16] text-slate-50">
         <section
@@ -158,25 +174,28 @@ export default function Home() {
           <div className="relative z-10 mx-auto flex min-h-screen max-w-[1440px] flex-col px-6 py-6 sm:px-8 lg:px-12">
             <header className="relative py-4 z-50">
               <div className="flex items-center justify-between gap-4">
-                <a href="#" className="inline-flex items-center gap-3 text-white">
+                <Link href="/" className="inline-flex items-center gap-3 text-white">
                   <img src="/images/vds logo.png" alt="VDS Logo" className="h-10 w-auto rounded-full object-contain" />
                   <span className="sr-only">VDS</span>
-                </a>
+                </Link>
 
-                <nav className="hidden items-center gap-10 text-sm text-slate-300 lg:flex">
-                  <a className="transition hover:text-white" href="#services">
+                <nav className="hidden items-center gap-2 text-sm text-slate-300 lg:flex">
+                  <Link className="px-4 py-2 rounded-full border border-transparent transition hover:border-white/15 hover:bg-white/5 hover:text-white" href="/">
+                    Home
+                  </Link>
+                  <a className="px-4 py-2 rounded-full border border-transparent transition hover:border-white/15 hover:bg-white/5 hover:text-white" href="#services">
                     Services
                   </a>
-                  <a className="transition hover:text-white" href="#portfolio">
+                  <a className="px-4 py-2 rounded-full border border-transparent transition hover:border-white/15 hover:bg-white/5 hover:text-white" href="#portfolio">
                     Portfolio
                   </a>
-                  <Link className="transition hover:text-white" href="/case-studies">
-                    Case Studies
+                  <Link className="px-4 py-2 rounded-full border border-transparent transition hover:border-white/15 hover:bg-white/5 hover:text-white" href="/team">
+                    Our Team
                   </Link>
-                  <Link className="transition hover:text-white" href="/about">
+                  <Link className="px-4 py-2 rounded-full border border-transparent transition hover:border-white/15 hover:bg-white/5 hover:text-white" href="/about">
                     About
                   </Link>
-                  <Link className="transition hover:text-white" href="/contact">
+                  <Link className="px-4 py-2 rounded-full border border-transparent transition hover:border-white/15 hover:bg-white/5 hover:text-white" href="/contact">
                     Contact
                   </Link>
                 </nav>
@@ -193,6 +212,7 @@ export default function Home() {
                 {/* Mobile Hamburger (3-bar) Button */}
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  type="button"
                   className="inline-flex items-center justify-center p-2.5 rounded-full border border-white/15 bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition lg:hidden"
                   aria-expanded={mobileMenuOpen}
                 >
@@ -212,14 +232,17 @@ export default function Home() {
                   }`}
               >
                 <nav className="flex flex-col gap-4 text-sm text-slate-300 font-medium pb-4">
+                  <Link className="transition py-2 hover:text-cyan-300" href="/" onClick={() => setMobileMenuOpen(false)}>
+                    Home
+                  </Link>
                   <a className="transition py-2 hover:text-cyan-300" href="#services" onClick={() => setMobileMenuOpen(false)}>
                     Services
                   </a>
                   <a className="transition py-2 hover:text-cyan-300" href="#portfolio" onClick={() => setMobileMenuOpen(false)}>
                     Portfolio
                   </a>
-                  <Link className="transition py-2 hover:text-cyan-300" href="/case-studies" onClick={() => setMobileMenuOpen(false)}>
-                    Case Studies
+                  <Link className="transition py-2 hover:text-cyan-300" href="/team" onClick={() => setMobileMenuOpen(false)}>
+                    Our Team
                   </Link>
                   <Link className="transition py-2 hover:text-cyan-300" href="/about" onClick={() => setMobileMenuOpen(false)}>
                     About
@@ -245,18 +268,18 @@ export default function Home() {
                   VIRTUAL DIGITAL SOLUTION
                 </span>
                 <h1 className="mt-8 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight tracking-[-0.05em] text-white">
-                  Transforming Ideas Into <span className="text-cyan-300">Digital Experiences</span>
+                  VDS Provide Solutions<span className="text-cyan-300"> to Business Growth</span>
                 </h1>
                 <p className="mt-6 max-w-xl text-base sm:text-lg leading-7 sm:leading-8 text-slate-300">
-                  We help startups, businesses, and enterprises build powerful digital products through UI/UX design, branding, web development, and digital solutions.
+                  We give solutions to build startup, business, & other enterprise into digital world
                 </p>
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                  <button className="inline-flex items-center justify-center rounded-full bg-cyan-400 px-7 py-4 text-base font-semibold text-slate-950 transition hover:bg-cyan-300">
+                  <Link href="/contact" className="inline-flex items-center justify-center rounded-full bg-cyan-400 px-7 py-4 text-base font-semibold text-slate-950 transition hover:bg-cyan-300">
                     Start a Project
-                  </button>
-                  <button className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-4 text-base text-slate-100 transition hover:border-cyan-300 hover:bg-white/10">
+                  </Link>
+                  <Link href="/#portfolio" className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-4 text-base text-slate-100 transition hover:border-cyan-300 hover:bg-white/10">
                     View Portfolio
-                  </button>
+                  </Link>
                 </div>
               </div>
 
@@ -310,15 +333,17 @@ export default function Home() {
                 <p className="mt-3 text-sm text-slate-400">User-centric interfaces that blend aesthetics with high conversion logic.</p>
               </article> */}
 
-                <article className="rounded-3xl border border-white/10 bg-slate-950/50 p-6 transition duration-300 hover:scale-105 hover:border-cyan-400/30 hover:bg-slate-950/70">
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
-                    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                    </svg>
-                  </div>
-                  <h3 className="mt-6 text-xl font-semibold text-white">Development</h3>
-                  <p className="mt-3 text-sm text-slate-400">Fast, scalable, and secure web applications built with modern frameworks.</p>
-                </article>
+                <Link href="/services/development-solution" className="block">
+                  <article className="rounded-3xl border border-white/10 bg-slate-950/50 p-6 transition duration-300 hover:scale-105 hover:border-cyan-400/30 hover:bg-slate-950/70 h-full">
+                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
+                      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                      </svg>
+                    </div>
+                    <h3 className="mt-6 text-xl font-semibold text-white">Development Solutions</h3>
+                    <p className="mt-3 text-sm text-slate-400">Fast, scalable, and secure web applications built with modern frameworks.</p>
+                  </article>
+                </Link>
 
                 {/* <article className="rounded-3xl border border-white/10 bg-slate-950/50 p-6 transition duration-300 hover:scale-105 hover:border-cyan-400/30 hover:bg-slate-950/70">
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
@@ -356,26 +381,30 @@ export default function Home() {
                 <p className="mt-3 text-sm text-slate-400">Deep-technical planning for complex enterprise software ecosystems.</p>
               </article> */}
 
-                <article className="rounded-3xl border border-white/10 bg-slate-950/50 p-6 transition duration-300 hover:scale-105 hover:border-cyan-400/30 hover:bg-slate-950/70">
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
-                    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M3 3v18h18" />
-                      <path d="M18 17V9M12 17V5M6 17v-3" />
-                    </svg>
-                  </div>
-                  <h3 className="mt-6 text-xl font-semibold text-white">Digital Marketing</h3>
-                  <p className="mt-3 text-sm text-slate-400">Data-driven strategies to grow your digital presence and ROI.</p>
-                </article>
+                <Link href="/services/digital-marketing" className="block">
+                  <article className="rounded-3xl border border-white/10 bg-slate-950/50 p-6 transition duration-300 hover:scale-105 hover:border-cyan-400/30 hover:bg-slate-950/70 h-full">
+                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
+                      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M3 3v18h18" />
+                        <path d="M18 17V9M12 17V5M6 17v-3" />
+                      </svg>
+                    </div>
+                    <h3 className="mt-6 text-xl font-semibold text-white">Digital Marketing</h3>
+                    <p className="mt-3 text-sm text-slate-400">Data-driven strategies to grow your digital presence and ROI.</p>
+                  </article>
+                </Link>
 
-                <article className="rounded-3xl border border-white/10 bg-slate-950/50 p-6 transition duration-300 hover:scale-105 hover:border-cyan-400/30 hover:bg-slate-950/70">
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
-                    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  </div>
-                  <h3 className="mt-6 text-xl font-semibold text-white">Content Creation</h3>
-                  <p className="mt-3 text-sm text-slate-400">Engaging content that resonates with your target audience.</p>
-                </article>
+                <Link href="/services/content-creation" className="block">
+                  <article className="rounded-3xl border border-white/10 bg-slate-950/50 p-6 transition duration-300 hover:scale-105 hover:border-cyan-400/30 hover:bg-slate-950/70 h-full">
+                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
+                      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </div>
+                    <h3 className="mt-6 text-xl font-semibold text-white">Content Creation</h3>
+                    <p className="mt-3 text-sm text-slate-400">Engaging content that resonates with your target audience.</p>
+                  </article>
+                </Link>
 
                 {/* <article className="rounded-3xl border border-white/10 bg-slate-950/50 p-6 transition duration-300 hover:scale-105 hover:border-cyan-400/30 hover:bg-slate-950/70">
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
@@ -390,13 +419,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-12 flex justify-center cursor-pointer">
-              <Link href="/services">
-                <button className="rounded-full bg-cyan-400 px-8 py-3 text-base font-semibold text-slate-950 transition hover:bg-cyan-300 cursor-pointer">
-                  See More Services
-                </button>
-              </Link>
-            </div>
+
           </div>
         </section>
 
@@ -417,7 +440,7 @@ export default function Home() {
                 </p>
               </div>
               <Link href="/case-studies" className="w-full md:w-auto">
-                <button className="w-full md:w-auto rounded-full border border-cyan-300/30 bg-cyan-400/10 px-6 py-3 text-sm font-semibold text-cyan-300 transition hover:border-cyan-300 hover:bg-cyan-400/20">
+                <button type="button" className="w-full md:w-auto rounded-full border border-cyan-300/30 bg-cyan-400/10 px-6 py-3 text-sm font-semibold text-cyan-300 transition hover:border-cyan-300 hover:bg-cyan-400/20">
                   View All Case Studies
                 </button>
               </Link>
@@ -522,147 +545,115 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="engineering-success"
-          className="relative overflow-hidden py-16"
-        >
+        <section id="our-story" className="relative overflow-hidden py-16 lg:py-24">
           <div className="relative z-10 mx-auto max-w-[1440px] px-6 sm:px-8 lg:px-12">
-            <div className="grid gap-12 items-center lg:grid-cols-[1fr_1fr]">
-              {/* Left Side Content */}
-              <div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-white">
-                  Engineering <span className="text-cyan-300">Digital Success</span>
+
+            {/* Story & Mission/Vision */}
+            <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] items-center mb-24">
+              <div className="space-y-6">
+                <span className="inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-cyan-200 font-medium">
+                  Who We Are
+                </span>
+                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight">
+                  The Story of <span className="text-cyan-300">VDS</span>
                 </h2>
-
-                <div className="mt-12 space-y-8">
-                  {/* Strategy First */}
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-cyan-400/30 bg-cyan-400/10 text-cyan-300">
-                        <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
-                          <circle cx="12" cy="12" r="1" />
-                          <path d="M12 2v6m0 4v6M4.22 4.22l4.24 4.24m2.12 2.12l4.24 4.24M2 12h6m4 0h6M4.22 19.78l4.24-4.24m2.12-2.12l4.24-4.24M19.78 4.22l-4.24 4.24m-2.12 2.12l-4.24 4.24M22 12h-6m-4 0H6" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-white">Strategy First</h3>
-                      <p className="mt-2 text-slate-400">We don't just build; we strategize. Every pixel serves a purpose in your business growth journey.</p>
-                    </div>
-                  </div>
-
-                  {/* High Performance */}
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-cyan-400/30 bg-cyan-400/10 text-cyan-300">
-                        <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
-                          <polyline points="13 2 13 9 20 9" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-white">High Performance</h3>
-                      <p className="mt-2 text-slate-400">Our solutions are engineered for speed, ensuring sub-second load times and flawless responsiveness.</p>
-                    </div>
-                  </div>
-
-                  {/* Reliable Partners */}
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-cyan-400/30 bg-cyan-400/10 text-cyan-300">
-                        <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                          <circle cx="9" cy="7" r="4" />
-                          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-white">Reliable Partners</h3>
-                      <p className="mt-2 text-slate-400">With 4+ years of industry experience, we are the trusted digital partner for global startups.</p>
-                    </div>
-                  </div>
+                <div className="space-y-4 text-base sm:text-lg text-slate-400 leading-relaxed pt-4">
+                  <p>
+                    <strong className="text-white font-medium">Every great brand starts with a belief.</strong> VDS was built on one simple idea: Businesses don't just need marketing. They need direction, identity, and long-term growth.
+                  </p>
+                  <p>
+                    We noticed that many businesses invested in ads, logos, and social media, yet struggled to build a brand people genuinely remembered. Marketing without strategy creates temporary results. Branding without execution stays only an idea. That's why we created VDS.
+                  </p>
+                  <p>
+                    Not as another digital marketing agency, but as a growth partner that combines strategy, creativity, technology, and execution under one roof. Today, VDS helps businesses build brands that people trust, create marketing systems that generate consistent growth, produce content that connects with audiences, and develop digital experiences through modern websites.
+                  </p>
+                  <p className="text-cyan-300 font-medium text-xl mt-4">
+                    We believe every business has a unique story. Our job is to make sure the world sees it. This is only the beginning.
+                  </p>
                 </div>
               </div>
 
-              {/* Right Side Image */}
-              <div className="relative overflow-hidden rounded-2xl w-full h-64 sm:h-80 md:h-96 lg:h-[450px]">
-                <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/10 bg-slate-950/50">
-                  <img
-                    src="/images/success.jpg"
-                    alt="Engineering Digital Success"
-                    className="h-full w-full object-cover"
-                  />
+              <div className="grid gap-6">
+                <div className="rounded-3xl border border-white/10 bg-slate-950/60 backdrop-blur-xl p-8 shadow-2xl transition hover:border-cyan-400/30">
+                  <h3 className="text-2xl font-semibold text-white mb-4 flex items-center gap-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">
+                      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+                    </span>
+                    Our Mission
+                  </h3>
+                  <p className="text-slate-400 leading-relaxed">To act as a holistic growth partner, combining strategy, creativity, technology, and execution to build trusted brands and drive consistent growth.</p>
+                </div>
+                <div className="rounded-3xl border border-white/10 bg-slate-950/60 backdrop-blur-xl p-8 shadow-2xl transition hover:border-cyan-400/30">
+                  <h3 className="text-2xl font-semibold text-white mb-4 flex items-center gap-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">
+                      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 12A10 10 0 0 1 22 12A10 10 0 0 1 2 12Z" /><path d="M12 2v20M2 12h20" /></svg>
+                    </span>
+                    Our Vision
+                  </h3>
+                  <p className="text-slate-400 leading-relaxed">To ensure every business's unique story is seen by the world, transforming visionary ideas into deeply memorable and lasting digital experiences.</p>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* Our Work Process Section */}
-        <section
-          id="work-process"
-          className="relative overflow-hidden py-16"
-        >
-          <div className="relative z-10 mx-auto max-w-[1440px] px-6 sm:px-8 lg:px-12">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-semibold text-white">
-                Our <span className="text-cyan-300">Work Process</span>
-              </h2>
-              <p className="mt-4 text-base sm:text-lg text-slate-400">
-                A streamlined methodology for extraordinary results.
-              </p>
-            </div>
-
-            {/* Process Steps */}
-            <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-8 md:gap-4 lg:gap-8 flex-wrap">
-              {/* Step 1: Discover */}
-              <div className="group flex flex-col items-center text-center max-w-xs cursor-default">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-cyan-400 bg-slate-950/50 mb-6 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]">
-                  <span className="text-3xl font-semibold text-cyan-300">01</span>
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-cyan-300">Discover</h3>
-                <p className="text-sm text-slate-400 transition-colors duration-300 group-hover:text-slate-300">In-depth research and goal alignment sessions.</p>
+            {/* Core Values */}
+            <div className="mb-24">
+              <div className="text-center mb-12">
+                <h3 className="text-3xl sm:text-4xl font-semibold text-white">Our <span className="text-cyan-300">Core Values</span></h3>
               </div>
-
-              {/* Step 2: Strategy */}
-              <div className="group flex flex-col items-center text-center max-w-xs cursor-default">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-slate-500 bg-slate-950/50 mb-6 transition-all duration-300 group-hover:border-cyan-400 group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]">
-                  <span className="text-3xl font-semibold text-slate-400 transition-colors duration-300 group-hover:text-cyan-300">02</span>
+              <div className="grid gap-6 sm:grid-cols-3">
+                <div className="rounded-3xl border border-white/10 bg-slate-950/50 p-8 text-center transition duration-300 hover:scale-105 hover:border-cyan-400/30 hover:bg-slate-950/80">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 mb-6">
+                    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="1" /><path d="M12 2v6m0 4v6M4.22 4.22l4.24 4.24m2.12 2.12l4.24 4.24M2 12h6m4 0h6M4.22 19.78l4.24-4.24m2.12-2.12l4.24-4.24M19.78 4.22l-4.24 4.24m-2.12 2.12l-4.24 4.24M22 12h-6m-4 0H6" /></svg>
+                  </div>
+                  <h4 className="text-xl font-semibold text-white mb-3">Strategy First</h4>
+                  <p className="text-sm text-slate-400 leading-relaxed">Marketing without strategy creates temporary results. Every pixel and campaign serves a clear purpose in your growth journey.</p>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-cyan-300">Strategy</h3>
-                <p className="text-sm text-slate-400 transition-colors duration-300 group-hover:text-slate-300">Roadmapping the architectural and design path.</p>
-              </div>
-
-              {/* Step 3: Design */}
-              <div className="group flex flex-col items-center text-center max-w-xs cursor-default">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-slate-500 bg-slate-950/50 mb-6 transition-all duration-300 group-hover:border-cyan-400 group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]">
-                  <span className="text-3xl font-semibold text-slate-400 transition-colors duration-300 group-hover:text-cyan-300">03</span>
+                <div className="rounded-3xl border border-white/10 bg-slate-950/50 p-8 text-center transition duration-300 hover:scale-105 hover:border-cyan-400/30 hover:bg-slate-950/80">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 mb-6">
+                    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" /><polyline points="13 2 13 9 20 9" /></svg>
+                  </div>
+                  <h4 className="text-xl font-semibold text-white mb-3">Flawless Execution</h4>
+                  <p className="text-sm text-slate-400 leading-relaxed">Branding without execution stays only an idea. We engineer high-performance solutions combining creativity and technology.</p>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-cyan-300">Design</h3>
-                <p className="text-sm text-slate-400 transition-colors duration-300 group-hover:text-slate-300">Crafting high-fidelity UI and brand experiences.</p>
-              </div>
-
-              {/* Step 4: Develop */}
-              <div className="group flex flex-col items-center text-center max-w-xs cursor-default">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-slate-500 bg-slate-950/50 mb-6 transition-all duration-300 group-hover:border-cyan-400 group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]">
-                  <span className="text-3xl font-semibold text-slate-400 transition-colors duration-300 group-hover:text-cyan-300">04</span>
+                <div className="rounded-3xl border border-white/10 bg-slate-950/50 p-8 text-center transition duration-300 hover:scale-105 hover:border-cyan-400/30 hover:bg-slate-950/80">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 mb-6">
+                    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+                  </div>
+                  <h4 className="text-xl font-semibold text-white mb-3">Reliable Partnership</h4>
+                  <p className="text-sm text-slate-400 leading-relaxed">We don't just act as an agency; we are your growth partner dedicated to building a brand people genuinely remember.</p>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-cyan-300">Develop</h3>
-                <p className="text-sm text-slate-400 transition-colors duration-300 group-hover:text-slate-300">Robust coding with cutting-edge technologies.</p>
-              </div>
-
-              {/* Step 5: Launch */}
-              <div className="group flex flex-col items-center text-center max-w-xs cursor-default">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-slate-500 bg-slate-950/50 mb-6 transition-all duration-300 group-hover:border-cyan-400 group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]">
-                  <span className="text-3xl font-semibold text-slate-400 transition-colors duration-300 group-hover:text-cyan-300">05</span>
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-cyan-300">Launch</h3>
-                <p className="text-sm text-slate-400 transition-colors duration-300 group-hover:text-slate-300">QA, optimization, and final deployment.</p>
               </div>
             </div>
+
+            {/* Our Work Process */}
+            <div>
+              <div className="text-center mb-16">
+                <h3 className="text-3xl sm:text-4xl font-semibold text-white">
+                  Our <span className="text-cyan-300">Work Process</span>
+                </h3>
+                <p className="mt-4 text-base text-slate-400">
+                  A streamlined methodology for extraordinary results.
+                </p>
+              </div>
+              <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-8 md:gap-4 lg:gap-8 flex-wrap">
+                {[
+                  { step: "01", title: "Discover", desc: "In-depth research and goal alignment sessions." },
+                  { step: "02", title: "Strategy", desc: "Roadmapping the architectural and design path." },
+                  { step: "03", title: "Design", desc: "Crafting high-fidelity UI and brand experiences." },
+                  { step: "04", title: "Develop", desc: "Robust coding with cutting-edge technologies." },
+                  { step: "05", title: "Launch", desc: "QA, optimization, and final deployment." }
+                ].map((item, i) => (
+                  <div key={i} className="group flex flex-col items-center text-center max-w-[12rem] cursor-default">
+                    <div className={`flex h-20 w-20 items-center justify-center rounded-full border-2 bg-slate-950/50 mb-6 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] ${i === 0 ? 'border-cyan-400' : 'border-slate-500 group-hover:border-cyan-400'}`}>
+                      <span className={`text-2xl font-semibold transition-colors duration-300 ${i === 0 ? 'text-cyan-300' : 'text-slate-400 group-hover:text-cyan-300'}`}>{item.step}</span>
+                    </div>
+                    <h4 className="text-lg font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-cyan-300">{item.title}</h4>
+                    <p className="text-sm text-slate-400 transition-colors duration-300 group-hover:text-slate-300">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </section>
 
@@ -705,6 +696,7 @@ export default function Home() {
               <div className="flex justify-center gap-2 mt-8">
                 {testimonials.map((_, index) => (
                   <button
+                    type="button"
                     key={index}
                     onClick={() => setCurrentTestimonial(index)}
                     className={`h-2 rounded-full transition ${index === currentTestimonial
@@ -743,26 +735,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Technology Stack Section */}
-        <section className="relative overflow-hidden py-24">
-          <div className="relative z-10 mx-auto max-w-[1440px] px-6 sm:px-8 lg:px-12 text-center">
-            <h3 className="text-[10px] sm:text-xs uppercase tracking-[0.4em] text-slate-400 font-semibold mb-10">
-              Our Technology Stack
-            </h3>
-            <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 text-xl sm:text-2xl font-normal text-slate-400/80">
-              <span className="hover:text-white transition duration-300 cursor-default">Figma</span>
-              <span className="hover:text-white transition duration-300 cursor-default">React</span>
-              <span className="hover:text-white transition duration-300 cursor-default">Next.js</span>
-              <span className="hover:text-white transition duration-300 cursor-default">Tailwind</span>
-              <span className="hover:text-white transition duration-300 cursor-default">Framer</span>
-              <span className="hover:text-white transition duration-300 cursor-default">Node.js</span>
-              <span className="hover:text-white transition duration-300 cursor-default">MongoDB</span>
-              <span className="hover:text-white transition duration-300 cursor-default">Express.js</span>
-              <span className="hover:text-white transition duration-300 cursor-default">MERN Stack</span>
-              <span className="hover:text-white transition duration-300 cursor-default">Full Stack</span>
-            </div>
-          </div>
-        </section>
+
 
         {/* CTA Card Section */}
         <section className="relative overflow-hidden py-16 px-6 sm:px-8 lg:px-12">
@@ -800,13 +773,13 @@ export default function Home() {
                   </a>
 
                   {/* Get Started Now Button */}
-                  <button className="inline-flex items-center justify-center rounded-xl bg-cyan-400 px-8 py-3.5 text-sm font-semibold text-slate-950 transition duration-300 hover:bg-cyan-300 hover:scale-[1.02] shadow-[0_4px_25px_rgba(34,211,238,0.15)]">
+                  <button type="button" className="inline-flex items-center justify-center rounded-xl bg-cyan-400 px-8 py-3.5 text-sm font-semibold text-slate-950 transition duration-300 hover:bg-cyan-300 hover:scale-[1.02] shadow-[0_4px_25px_rgba(34,211,238,0.15)]">
                     Get Started Now
                   </button>
 
                   {/* Phone contact */}
                   <a
-                    href="#"
+                    href="tel:+8801300433387"
                     className="inline-flex items-center gap-3 text-sm font-medium text-slate-300 transition hover:text-white"
                   >
                     <svg viewBox="0 0 24 24" className="h-5 w-5 text-cyan-400" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -862,24 +835,33 @@ export default function Home() {
 
               {/* Connect Col */}
               <div>
-                <h4 className="text-sm font-semibold tracking-wider text-white mb-6">
+                <h4 className="text-sm font-semibold tracking-wider text-white mb-6 text-center">
                   Connect
                 </h4>
-                <ul className="space-y-4 text-sm text-slate-400">
+                <ul className="grid grid-cols-2 gap-x-6 gap-y-4 text-sm text-slate-400 whitespace-nowrap">
                   <li>
-                    <a href="https://behance.net" target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200">Behance</a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200">Facebook</a>
                   </li>
                   <li>
-                    <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200">Dribbble</a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200">Instagram</a>
+                  </li>
+                  <li>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200">YouTube</a>
+                  </li>
+                  <li>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200">TikTok</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200">GitHub</a>
                   </li>
                   <li>
                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200">LinkedIn</a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-white transition duration-200">Privacy Policy</a>
+                    <Link href="/privacy" className="hover:text-white transition duration-200">Privacy Policy</Link>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-white transition duration-200">Terms of Service</a>
+                    <Link href="/terms" className="hover:text-white transition duration-200">Terms of Service</Link>
                   </li>
                 </ul>
               </div>
@@ -890,6 +872,7 @@ export default function Home() {
         {/* Back to Top Button */}
         <button
           onClick={scrollToTop}
+          type="button"
           className={`fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-cyan-500/30 bg-slate-950/60 text-cyan-400 backdrop-blur-md transition-all duration-300 hover:border-cyan-400 hover:text-cyan-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] hover:scale-110 active:scale-95 ${showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
             }`}
           aria-label="Back to Top"

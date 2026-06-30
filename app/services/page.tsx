@@ -122,20 +122,23 @@ export default function Services() {
           <span className="sr-only">VDS</span>
         </Link>
 
-        <nav className="hidden items-center gap-10 text-sm text-slate-300 lg:flex">
-          <Link className="transition hover:text-white" href="/#services">
+        <nav className="hidden items-center gap-2 text-sm text-slate-300 lg:flex">
+          <Link className="px-4 py-2 rounded-full border border-transparent transition hover:border-white/15 hover:bg-white/5 hover:text-white" href="/">
+            Home
+          </Link>
+          <Link className="px-4 py-2 rounded-full border border-transparent transition hover:border-white/15 hover:bg-white/5 hover:text-white" href="/#services">
             Services
           </Link>
-          <a className="transition hover:text-white" href="#portfolio">
+          <Link className="px-4 py-2 rounded-full border border-transparent transition hover:border-white/15 hover:bg-white/5 hover:text-white" href="/#portfolio">
             Portfolio
-          </a>
-          <Link className="transition hover:text-white" href="/case-studies">
-            Case Studies
           </Link>
-          <Link className="transition hover:text-white" href="/about">
+          <Link className="px-4 py-2 rounded-full border border-transparent transition hover:border-white/15 hover:bg-white/5 hover:text-white" href="/team">
+            Our Team
+          </Link>
+          <Link className="px-4 py-2 rounded-full border border-transparent transition hover:border-white/15 hover:bg-white/5 hover:text-white" href="/about">
             About
           </Link>
-          <Link className="transition hover:text-white" href="/contact">
+          <Link className="px-4 py-2 rounded-full border border-transparent transition hover:border-white/15 hover:bg-white/5 hover:text-white" href="/contact">
             Contact
           </Link>
         </nav>
