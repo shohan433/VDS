@@ -698,7 +698,7 @@ export default function Home() {
               <p className="mt-3 text-sm uppercase tracking-[0.24em] text-slate-400">Global Clients</p>
             </div>
             <div className="rounded-3xl bg-slate-950/70 px-6 py-6">
-              <p className="text-3xl font-semibold text-white">2+</p>
+              <p className="text-3xl font-semibold text-white">6+</p>
               <p className="mt-3 text-sm uppercase tracking-[0.24em] text-slate-400">Years Experience</p>
             </div>
             <div className="rounded-3xl bg-slate-950/70 px-6 py-6">
